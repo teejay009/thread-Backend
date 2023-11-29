@@ -100,7 +100,8 @@ const followUnfollowUser = async (req, res) => {
     const isFollowing = currentUser.following.includes(id)
     if(!isFollowing) {
         // UNFOLLOW user
-        await User.findByIdAndUpdate(id, $pull: {folloers: req}) 
+        await User.findByIdAndUpdate(id, $pull: {folloers: req.user._id}) 
+        await User.findByIdAndUpdate(id, $pull: {folloers: req.user._id}) 
     }
 
     }
