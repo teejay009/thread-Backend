@@ -86,38 +86,40 @@ const logoutUser = (req, res) => {
 
 } 
 
-const followUnfollowUser = async (req, res) => {
-    try {
-        const {id} = req.params
-        const userToModify = await User.findById(id)
-        const currentUser = await User.findById(req.user._id)
+const followUnFollowUser = async (req, res) => {
+	try {
+		const {id} = req.params
+		const userToModify = await User.findById(id)
+		const currentUser = await User.findById(req.user._id)
 
-        if (id === req.user._toString())
-        return res.status(400).json({error: "You can not follow/Unfollow your self"})
-    if (!userToModify || !currentUser)
-    return res.status(400).json({error: "User not Found"});
+		if (id === req.user._id.toString()){
+			return res.status(400).json({error: 'You can not follow/unfollow yourself' })
+		}
+		if (!userToModify || !currentUser) {
+			return res.status(400).json({ error: "User not Found"})
+		}
 
-    const isFollowing = currentUser.following.includes(id)
-    if(!isFollowing) {
-        // UNFOLLOW user
-        await User.findByIdAndUpdate(id, {$pull: {folloers: req.user._id}}) 
-        await User.findByIdAndUpdate(req.user._id, {$pull: {follwing: id}}) 
-        res.status(200).json({message: "Unfollowed Successfully"})
-    }else {
-        // Follow
-        await User.findByIdAndUpdate(id, {$pull: {folloers: req.user._id}}) 
-        await User.findByIdAndUpdate(req.user._id, {$pull: {follwing: id}}) 
-        res.status(200).json({message: "Unfollowed Successfully"})
-    }
-
-    }catch(err) {
-        res.status(500).json({error: err.message})
-        console.log("Error in followUnfollowUser: ", err.message)
-    }
+		const isFollowing = currentUser.following.includes(id)
+		
+		if(isFollowing) {
+			//Unfollow User
+			await User.findByIdAndUpdate(id, {$pull: {followers: req.user._id}})
+			await User.findByIdAndUpdate(req.user._id, {$pull: {following: id}})
+			res.status(200).json({mesage: "User unfollowed Successfully"})
+		} else {
+			//FOLLOW USER
+			await User.findByIdAndUpdate(id, {$push: {followers: req.user._id}})
+			await User.findByIdAndUpdate(req.user._id, {$push: {following: id}})
+			res.status(200).json({mesage: "User followed Successfully"})
+		}
+	} catch (err) {
+		res.status(500).json({ message: err.message }); //Internal server error
+		console.log("Error in followUnFollowUser: ", err.message);
+	}
 }
 
 
 
 
 
-module.exports = { signUpUser, loginUser, logoutUser, followUnfollowUser } ;
+module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser } ;
