@@ -1,11 +1,13 @@
 const User = require ('../models/useModel')
 const bcrypt = require('bcryptjs');
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookies');
+import
 
 const getUserProfile = async (req, res) => {
     // We fetch the user profile either by user name or user id
     // query is either username or userId
-    
+    const {query} = req.params;
+
 }     
 
 const signUpUser = async(req, res) => {
