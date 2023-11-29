@@ -100,8 +100,9 @@ const followUnfollowUser = async (req, res) => {
     const isFollowing = currentUser.following.includes(id)
     if(!isFollowing) {
         // UNFOLLOW user
-        await User.findByIdAndUpdate($pull: {folloers: req.user._id}) 
-        await User.findByIdAndUpdate(req.user._id, {$pull: {folloers: req.user._id}) 
+        await User.findByIdAndUpdate(id, {$pull: {folloers: req.user._id}}) 
+        await User.findByIdAndUpdate(req.user._id, {$pull: {follwing: id}}) 
+        res.status(200).json({message: "Unfollowed Successfully"})
     }
 
     }
