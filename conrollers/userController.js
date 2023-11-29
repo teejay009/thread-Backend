@@ -52,7 +52,7 @@ const loginUser = async (req, res) => {
         if(user.isFrozen) {
             user.isFrozen = false
             await user.save()
-        }
+        }L
     }
 }
 
