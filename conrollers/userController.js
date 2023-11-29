@@ -3,7 +3,7 @@ const bcrypt = require('bcryptjs');
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookies');
 
 const getUserProfile = async (req, res) => {
-    
+    // We fetch the user profile either by user name or user id
 }     
 
 const signUpUser = async(req, res) => {
@@ -128,4 +128,4 @@ const followUnFollowUser = async (req, res) => {
 
 
 
-module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser } ;
+module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser, getUserProfile } ;
