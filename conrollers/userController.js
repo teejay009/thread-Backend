@@ -99,7 +99,8 @@ const followUnfollowUser = async (req, res) => {
 
     const isFollowing = currentUser.following.includes(id)
     if(!isFollowing) {
-        // UNFOLLOW users
+        // UNFOLLOW user
+        await User.findById
     }
 
     }
