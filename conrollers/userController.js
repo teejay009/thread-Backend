@@ -156,4 +156,3 @@ const followUnFollowUser = async (req, res) => {
 
 
 module.exports = { signUpUser, loginUser, logoutUser, followUnFollowUser, getUserProfile } ;
-1
