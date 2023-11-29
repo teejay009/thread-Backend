@@ -74,5 +74,15 @@ const loginUser = async (req, res) => {
     }
 }
 
+const logoutUser = (req, res) => {
+    try {
+        res.cookie("jwt", "", {maxAge: 1})
+        
+    }
 
-module.exports = { signUpUser, loginUser } 
+}
+
+
+
+
+module.exports = { signUpUser, loginUser, logoutUser } 
