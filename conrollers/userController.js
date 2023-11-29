@@ -81,7 +81,7 @@ const logoutUser = (req, res) => {
 
     } catch(err) {
         res.status(500).json({error: err.message})
-        console.log("Error in logout users: ", err.message)
+        console.log("Error in logoutUsers: ", err.message)
     }
 
 }    
