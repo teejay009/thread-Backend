@@ -28,7 +28,8 @@ const getUserProfile = async (req, res) => {
     console.log("Error in getUserProfile: ", err.mesage);
 }
 
-    
+ 
+
 
 }     
 
