@@ -1,7 +1,7 @@
 const User = require ('../models/useModel')
 const bcrypt = require('bcryptjs');
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookies');
-import
+const mongoose = 
 
 const getUserProfile = async (req, res) => {
     // We fetch the user profile either by user name or user id
