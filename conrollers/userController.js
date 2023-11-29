@@ -4,7 +4,7 @@ const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCo
 
 const getUserProfile = async (req, res) => {
     
-}
+}     
 
 const signUpUser = async(req, res) => {
    try {
