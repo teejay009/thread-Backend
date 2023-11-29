@@ -10,5 +10,6 @@ router.post('/signup', signUpUser)
 router.post('/login', loginUser)
 router.post('/logout', logoutUser)
 router.post('/follow/:id', protectRoute, followUnFollowUser) // toggle state(follow/unfollow)
+router.get('/')
 
 module.exports= router;
