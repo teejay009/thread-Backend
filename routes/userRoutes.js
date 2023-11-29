@@ -3,6 +3,9 @@ const { getUserProfile, followUnFollowUser, signUpUser, loginUser, logoutUser } 
 const protectRoute = require('../middleware/protectRoute');
 
 
+
+
+
 const router = express.Router();
 
 router.get('/profile/:query', getUserProfile)

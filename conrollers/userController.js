@@ -2,6 +2,10 @@ const User = require ('../models/useModel')
 const bcrypt = require('bcryptjs');
 const generateTokenAndSetCookie = require('../utils/helper/generateTokenAndSetCookies');
 
+const getUserProfile = async (req, res) => {
+    
+}
+
 const signUpUser = async(req, res) => {
    try {
     const {name, email, username, password} = req.body;
