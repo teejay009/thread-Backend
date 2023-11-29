@@ -11,7 +11,7 @@ const getUserProfile = async (req, res) => {
     try {
         let user;
 
-        // 
+        //  query is userId
     }
 
 }     
