@@ -56,7 +56,12 @@ const loginUser = async (req, res) => {
 
         generateTokenAndSetCookie(user._id, res);
 
-        res.status
+        res.status(200).json
+        name:
+        email:
+        username:
+        bio:
+        profilePic:
 
     }
 }
