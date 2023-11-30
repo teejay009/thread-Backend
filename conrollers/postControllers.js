@@ -8,6 +8,28 @@ const createPost = async (req, res) => {
             return res.status(400).json({message: "postedBy text fields are required"})
         }
         const user = await User.findById(postedBy);
+
+        if(!user){
+            return res.status(404).json({message: "User not found"})
+        }
+
+        const maxLenght = 500;
+
+        if(text.lenght > maxLenght){
+            return res.status(400).json({message: `Text must be lessthan ${maxLenght} characters`})
+        }
+        const newPost = newPost({postedBy, text, img});
+
+        await newPost.save()
+
+        res.status(201).json({message: "Post created successfully", newPost})
+
+
+
+
+    } catch (error) {
+        res.status(500).json({ message: err.message }); //Internal server error
+		console.log("Error in Create Post: ", err.message);
     }
 
 }
