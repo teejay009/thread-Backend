@@ -150,6 +150,9 @@ const followUnFollowUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+    try {
+        
+    }
 
 }
 
