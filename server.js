@@ -3,6 +3,7 @@ const express = require('express')
 const cookieParser = require ("cookie-parser");
 const mongoose = require("mongoose");
 const userRoutes = require ('./routes/userRoutes')
+const postRoutes = require('./routes/postRoutes.js')
 
 
 const app = express();

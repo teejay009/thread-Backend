@@ -1,5 +1,6 @@
 const express = require('express')
-
+const  { createPost } = require('../conrollers/postControllers')
+}
 const router = express.Router()
 
 
