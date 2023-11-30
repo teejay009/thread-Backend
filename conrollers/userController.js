@@ -150,7 +150,11 @@ const followUnFollowUser = async (req, res) => {
 };
 
 const updateUser = async (req, res) => {
+
+    const {name, email, username, password, profilePic, bio} = req.body
+    const userId = req.user._id
     try {
+        
        
     } catch (err) {
 		res.status(500).json({ message: err.message }); //Internal server error
