@@ -151,7 +151,12 @@ const followUnFollowUser = async (req, res) => {
 
 const updateUser = async (req, res) => {
     try {
-        
+       
+    } catch (err) {
+		res.status(500).json({ message: err.message }); //Internal server error
+		console.log("Error in followUnFollowUser: ", err.message);
+	
+
     }
 
 }
