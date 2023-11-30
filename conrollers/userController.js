@@ -158,7 +158,7 @@ const updateUser = async (req, res) => {
         if(!user) return res.status(400).json({mesage: "User not found"});
 
         if (req.params.id !== userId.toString())
-        return res.status(400).json
+           return res.status(400).json({message: "YOU can not update other user's profile"})
 
         if (password) {
             const salt = await bcrypt.genSalt(10)
