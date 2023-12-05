@@ -27,7 +27,7 @@ const postSchema = mongoose.Schema(
                     ref: "User",
                     required: true
                 },
-                Text: {
+                text: {
                     type: String,
                     required: true
                 },
